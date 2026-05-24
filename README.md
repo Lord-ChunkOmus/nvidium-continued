@@ -28,4 +28,4 @@ Original Nvidium mod by MCRcortex
 Port by Lord_ChunkOmus
 
 License
-LGPL-3.0 — see LICENSE.txt
+LGPL-3.0 
