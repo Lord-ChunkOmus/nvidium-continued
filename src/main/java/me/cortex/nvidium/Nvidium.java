@@ -26,8 +26,16 @@ public class Nvidium {
         MOD_VERSION = version+"-"+commit;
     }
 
-    public static void checkSystemIsCapable() {
+   public static void checkSystemIsCapable() {
         var cap = GL.getCapabilities();
+
+        if (!cap.OpenGL45) {
+            LOGGER.warn("OpenGL 4.5+ not supported, disabling Nvidium. Your world will render normally via Sodium.");
+            IS_COMPATIBLE = false;
+            IS_ENABLED = false;
+            return;
+        }
+
         boolean supported = cap.GL_NV_mesh_shader &&
                 cap.GL_NV_uniform_buffer_unified_memory &&
                 cap.GL_NV_vertex_buffer_unified_memory &&
@@ -44,7 +52,6 @@ public class Nvidium {
             LOGGER.warn("Linux currently uses fallback terrain buffer due to driver inconsistencies, expect increase vram usage");
             SUPPORTS_PERSISTENT_SPARSE_ADDRESSABLE_BUFFER = false;
         }
-
         if (IS_COMPATIBLE) {
             LOGGER.info("Enabling Nvidium");
         }
