@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "nvidium",
+  "version": "${version}",
+  "custom": {
+    "commit": "${commit}",
+    "buildtime": "${buildtime}"
+  },
+  "name": "Nvidium Continued",
+  "description": "Community port of Nvidium for Sodium 0.5.13 on Minecraft 1.20.1. Original by Cortex.",
+  "authors": [
+    "Cortex (original)",
+    "Lord_ChunkOmus"
+  ],
+  "contact": {},
+  "license": "LGPL-3.0",
+  "icon": "assets/nvidium/nvidium.png",
+  "environment": "client",
+  "entrypoints": {},
+  "mixins": [
+    "nvidium.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.18",
+    "minecraft": ">=1.20.1",
+    "sodium": ["=0.5.13"]
+  }
+}
